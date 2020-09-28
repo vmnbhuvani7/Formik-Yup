@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+}
+
+.form-control {
+  margin-bottom: 20px;
+}
+
+.error {
+  color: red;
+}
