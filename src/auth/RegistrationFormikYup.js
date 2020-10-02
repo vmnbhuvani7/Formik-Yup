@@ -2,7 +2,7 @@ import React from 'react'
 import { Formik, Form, Field, ErrorMessage, FieldArray } from 'formik';
 import * as Yup from 'yup'
 import '../App.css';
-import TextError from './TextError';
+import TextError from '../commen/TextError'
 
 const RegistrationFormikYup = () => {
 
@@ -35,13 +35,13 @@ const RegistrationFormikYup = () => {
             .oneOf([Yup.ref('password'), null], 'Passwords must match').required('Required !'),
     })
 
-    const validateComments = (values) => {
-        let errors = {}
-        if (!values) {
-            errors = 'Required !'
-        }
-        return errors
-    }
+    // const validateComments = (values) => {
+    //     let errors = {}
+    //     if (!values) {
+    //         errors = 'Required !'
+    //     }
+    //     return errors
+    // }
 
     return (
         <div className="container" >
@@ -51,7 +51,7 @@ const RegistrationFormikYup = () => {
                 onSubmit={onSubmit}
             >
                 {formik => {
-                    console.log(formik);
+                    // console.log(formik);
                     return (
                         <div className="row">
                             <div className='col-md-6'>
@@ -103,8 +103,7 @@ const RegistrationFormikYup = () => {
                                             <ErrorMessage name="confirmPassword" component={TextError} />
                                         </div>
 
-
-                                        <div className="form-group ">
+                                        {/* <div className="form-group ">
                                             <label className="form-label" >Comments: </label>
                                             <Field
                                                 as='textarea'
@@ -113,7 +112,7 @@ const RegistrationFormikYup = () => {
                                                 validate={validateComments}
                                             />
                                             <ErrorMessage name="comments" component={TextError} />
-                                        </div>
+                                        </div> */}
 
                                         <div className="form-group ">
                                             <label className="form-label" >Facebook Profile: </label>
@@ -122,7 +121,6 @@ const RegistrationFormikYup = () => {
                                                 type="text"
                                                 className="rounded-pill form-control"
                                             />
-                                            <ErrorMessage name="confirmtext" component={TextError} />
                                         </div>
 
                                         <div className="form-group ">
@@ -132,7 +130,6 @@ const RegistrationFormikYup = () => {
                                                 type="text"
                                                 className="rounded-pill form-control"
                                             />
-                                            <ErrorMessage name="confirmtext" component={TextError} />
                                         </div>
 
                                         <div className="form-group ">
@@ -142,7 +139,6 @@ const RegistrationFormikYup = () => {
                                                 type="text"
                                                 className="rounded-pill form-control"
                                             />
-                                            <ErrorMessage name="confirmtext" component={TextError} />
                                         </div>
 
                                         <div className="form-group ">
@@ -152,11 +148,10 @@ const RegistrationFormikYup = () => {
                                                 type="text"
                                                 className="rounded-pill form-control"
                                             />
-                                            <ErrorMessage name="confirmtext" component={TextError} />
                                         </div>
 
 
-                                        <div className="form-group ">
+                                        {/* <div className="form-group ">
                                             <label className="form-label" >Address: </label>
                                             <Field
                                                 name="address"
@@ -176,11 +171,13 @@ const RegistrationFormikYup = () => {
                                                     }
                                                 }
                                             </Field>
-                                        </div>
+                                        </div> */}
+
 
                                         <div className="form-group text-center">
                                             <label className="form-label"></label>
-                                            <button type="submit" disabled={!formik.isValid} className="btn btn-primary rounded-pill mr-4">Save</button>
+                                            {/* <button type="submit" disabled={!(formik.dirty && formik.isValid)} className="btn btn-primary rounded-pill mr-4">Save</button> */}
+                                            <button type="submit" disabled={!formik.isValid || formik.isSubmitting} className="btn btn-primary rounded-pill mr-4">Save</button>
                                         </div>
                                     </Form>
                                 </div>
@@ -196,3 +193,4 @@ const RegistrationFormikYup = () => {
 }
 
 export default RegistrationFormikYup
+

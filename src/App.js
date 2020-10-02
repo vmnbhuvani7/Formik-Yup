@@ -1,13 +1,18 @@
 import React from 'react'
-import FormikForm from './component/FormikForm'
-import RegistrationFormikYup from './component/RegistrationFormikYup'
+
+import { ThemeProvider } from 'emotion-theming'
+import FormikContainer from './commen/FormikContainer'
+import { theme } from '@chakra-ui/core'
 
 const App = () => {
   return (
-    <div>
-      {/* <FormikForm /> */}
-      <RegistrationFormikYup />
-    </div>
+    <ThemeProvider theme={theme}>
+      <div>
+        {/* <FormikForm /> */}
+        {/* <RegistrationFormikYup /> */}
+        <FormikContainer />
+      </div>
+    </ThemeProvider>
   )
 }
 
