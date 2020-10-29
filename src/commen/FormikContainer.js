@@ -28,7 +28,7 @@ const FormikContainer = () => {
         radioOption: '',
         checkBoxOption: [],
         birthDate: null,
-        fname: '',
+        // fname: '',
     }
 
     const validationSchema = Yup.object({
@@ -38,7 +38,7 @@ const FormikContainer = () => {
         radioOption: Yup.string().required('Required !'),
         checkBoxOption: Yup.array().required('Required !'),
         birthDate: Yup.date().required('Required !').nullable(),
-        fname: Yup.string().required('Required !'),
+        // fname: Yup.string().required('Required !'),
     })
 
     const onSubmit = values => {
@@ -94,11 +94,11 @@ const FormikContainer = () => {
                             name='birthDate'
                         />
 
-                        <FormikControl
+                        {/* <FormikControl
                             control='chakrainput'
                             label='Full name'
                             name='fname'
-                        />
+                        /> */}
 
                         <button type="submit">Submit</button>
                     </Form>

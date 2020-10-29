@@ -9,7 +9,7 @@ const ChakraInput = (props) => {
         <Field name={name}>
             {
                 ({ field, form }) => {
-                    console.log(form);
+                    // console.log(form);
                     return (
                         <div className="form-group ">
                             <FormControl isInvalid={form.errors[name] && form.touched[name]}>
